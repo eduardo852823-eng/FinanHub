@@ -1,0 +1,2 @@
+/* Ajustes específicos da tela de login/cadastro */
+.auth-screen .auth-buttons form { display: flex; flex-direction: column; gap: var(--space-3); }

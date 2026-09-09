@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Criar conta — FinanHub</title>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="auth-screen">
+    <a href="login.html" class="back-btn" style="margin-bottom: var(--space-5);">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div class="auth-logo">
+      <div class="mark">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M4 18V10M10 18V6M16 18V13M22 18V8" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="word">Finan<span class="hub">Hub</span></div>
+    </div>
+    <p class="auth-tagline">Crie sua conta e comece a organizar suas finanças.</p>
+
+    <form class="auth-buttons" onsubmit="enviarCadastro(event)">
+      <div class="input-group">
+        <label>Nome</label>
+        <input class="input-field" type="text" placeholder="Seu nome" required>
+      </div>
+      <div class="input-group">
+        <label>E-mail</label>
+        <input class="input-field" type="email" placeholder="seu@email.com" required>
+      </div>
+      <div class="input-group">
+        <label>Senha</label>
+        <input class="input-field" type="password" placeholder="Mínimo 8 caracteres" minlength="8" required>
+      </div>
+      <button class="btn btn-primary" type="submit">Criar conta</button>
+      <div id="google-btn" style="display:flex; justify-content:center;"></div>
+    </form>
+
+    <div class="auth-footer">
+      <span class="text-muted text-sm">Já tem conta? </span>
+      <a href="login.html" class="btn-text" style="padding:0;">Entrar</a>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script>renderBotaoGoogle('google-btn');</script>
+</body>
+</html>
