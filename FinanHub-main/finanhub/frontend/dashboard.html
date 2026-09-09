@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Início — FinanHub</title>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/componentes.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="screen">
+    <div class="topbar">
+      <div>
+        <h1 id="saudacao">Olá, Dudu!</h1>
+        <p class="text-secondary text-sm">Aqui está um resumo das suas finanças.</p>
+      </div>
+      <a href="perfil.html" class="avatar">D</a>
+    </div>
+
+    <div class="card">
+      <div class="card-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Saldo total
+      </div>
+      <div class="card-value" id="saldo-total">R$ 0,00</div>
+      <div class="card-delta">↑ 12% em relação ao mês anterior</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label"><span class="badge badge-green">↑</span> Entradas</div>
+        <div class="card-value text-green" id="total-entradas">R$ 0,00</div>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="badge badge-red">↓</span> Saídas</div>
+        <div class="card-value text-red" id="total-saidas">R$ 0,00</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Seus bancos</h2>
+        <a href="bancos.html" class="link">Ver todos ›</a>
+      </div>
+      <div class="banks-scroll" id="lista-bancos"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Gastos por categoria</h2>
+        <a href="relatorios.html" class="link">Relatórios ›</a>
+      </div>
+      <div class="card">
+        <div class="chart-wrap"><canvas id="chart-categorias"></canvas></div>
+        <div class="chart-legend" id="legenda-categorias"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10h14V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Início
+    </a>
+    <a href="transacoes.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M7 10l5-5 5 5M7 14l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Transações
+    </a>
+    <a href="categorias.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
+      Categorias
+    </a>
+    <a href="relatorios.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Relatórios
+    </a>
+  </nav>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

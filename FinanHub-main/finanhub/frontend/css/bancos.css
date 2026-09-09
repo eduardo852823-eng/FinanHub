@@ -1,0 +1,3 @@
+.institution-row { border-bottom: 1px solid var(--border-subtle); }
+.institution-row:last-child { border-bottom: none; }
+.institution-row button.connect { color: var(--blue-primary); font-weight: 600; font-size: 13.5px; }
