@@ -33,10 +33,10 @@
     </div>
     <h1 style="font-size:20px; font-weight:700; margin-bottom: var(--space-3);">Usar dados de demonstração</h1>
     <p class="text-secondary" style="max-width:280px; margin-bottom: var(--space-8);">
-      Criaremos algumas contas e transações fictícias para você testar o aplicativo.
+      Criaremos algumas contas e transações fictícias na sua conta, direto no banco de dados, para você testar o aplicativo.
     </p>
     <div style="width:100%; max-width:280px;">
-      <button class="btn btn-primary" onclick="ativarDemo()">Ativar</button>
+      <button class="btn btn-primary" id="btn-ativar" onclick="ativarDemo()">Ativar</button>
     </div>
     <p class="text-muted text-sm" style="margin-top: var(--space-6); max-width:280px;">
       Os dados são fictícios e não representam movimentações reais.
@@ -46,9 +46,20 @@
   <script src="js/app.js"></script>
   <script>
     function ativarDemo() {
-      sessionStorage.removeItem('finanhub_demo_state_v1');
-      FinanHub.getState();
-      window.location.href = 'dashboard.html';
+      const auth = FinanHub.requireAuth();
+      if (!auth) return;
+
+      const btn = document.getElementById('btn-ativar');
+      btn.disabled = true;
+      btn.textContent = 'Ativando…';
+
+      FinanHub.ativarDemo()
+        .then(() => { window.location.href = 'dashboard.html'; })
+        .catch(() => {
+          btn.disabled = false;
+          btn.textContent = 'Ativar';
+          alert('Não foi possível ativar o modo demonstração. Tente novamente.');
+        });
     }
   </script>
 </body>
