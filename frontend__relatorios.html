@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Relatórios — FinanHub</title>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+  <div class="screen">
+    <div class="topbar">
+      <a href="dashboard.html" class="back-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <h1>Relatórios</h1>
+      <div style="width:36px;"></div>
+    </div>
+
+    <div class="tab-toggle">
+      <button class="active" data-tab="geral">Geral</button>
+      <button data-tab="comparar">Comparar</button>
+    </div>
+
+    <!-- Aba Geral -->
+    <div id="aba-geral">
+      <p class="text-secondary text-sm" style="margin-bottom: var(--space-2);">Resumo do mês</p>
+      <p class="font-bold" id="mes-atual" style="margin-bottom: var(--space-4);">Janeiro de 2026</p>
+
+      <div class="grid-2" style="margin-top:0;">
+        <div class="card">
+          <div class="card-label">Entradas</div>
+          <div class="card-value text-green" id="rel-entradas">R$ 0</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Saídas</div>
+          <div class="card-value text-red" id="rel-saidas">R$ 0</div>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-label">Resultado</div>
+        <div class="card-value" id="rel-resultado">R$ 0</div>
+      </div>
+
+      <div class="section">
+        <div class="section-header"><h2>Entradas vs Saídas</h2></div>
+        <div class="card">
+          <div class="chart-wrap"><canvas id="chart-evolucao"></canvas></div>
+          <div class="chart-legend">
+            <div class="legend-item"><span class="dot" style="background:var(--green)"></span>Entradas</div>
+            <div class="legend-item"><span class="dot" style="background:var(--red)"></span>Saídas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aba Comparar -->
+    <div id="aba-comparar" style="display:none;">
+      <div class="tab-toggle">
+        <button class="active" data-subtab="mensal">Mensal</button>
+        <button data-subtab="banco">Por banco</button>
+      </div>
+
+      <p class="text-secondary text-sm mt-2" style="margin-bottom:var(--space-2);">Selecione os meses</p>
+      <div class="input-group">
+        <select class="input-field" id="mes-a">
+          <option>Janeiro 2025</option>
+          <option selected>Janeiro 2026</option>
+        </select>
+      </div>
+      <div class="flex items-center justify-between text-muted text-sm" style="margin: -4px 0 var(--space-3);">
+        <span>Janeiro 2025</span><span class="vs">VS</span><span>Janeiro 2026</span>
+      </div>
+
+      <div class="input-group">
+        <label>Tipo</label>
+        <select class="input-field" id="comp-tipo">
+          <option value="gastos">Gastos</option>
+          <option value="ganhos">Ganhos</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" onclick="gerarComparacao()">Gerar comparação</button>
+
+      <div class="card mt-6" id="resultado-comparacao" style="display:none;">
+        <div class="card-label">Variação nos gastos</div>
+        <div class="card-value text-red" id="comp-variacao">↑ 0%</div>
+        <div class="text-muted text-sm mt-2" id="comp-detalhe"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10h14V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Início
+    </a>
+    <a href="transacoes.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M7 10l5-5 5 5M7 14l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Transações
+    </a>
+    <a href="categorias.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
+      Categorias
+    </a>
+    <a href="relatorios.html" class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Relatórios
+    </a>
+  </nav>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/relatorios.js"></script>
+</body>
+</html>

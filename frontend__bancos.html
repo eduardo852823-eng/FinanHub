@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Minhas instituições — FinanHub</title>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/componentes.css">
+<link rel="stylesheet" href="css/bancos.css">
+</head>
+<body>
+  <div class="screen">
+    <div class="topbar">
+      <a href="dashboard.html" class="back-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <h1>Instituições</h1>
+      <button class="back-btn" onclick="abrirModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <p class="text-secondary text-sm" style="margin-bottom: var(--space-5);">Conecte seus bancos e acompanhe tudo em um só lugar.</p>
+
+    <div class="card" style="padding: 0;">
+      <div id="lista-instituicoes"></div>
+    </div>
+
+    <button class="btn btn-primary mt-6" onclick="abrirModal()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Adicionar instituição
+    </button>
+
+    <p class="text-muted text-sm" style="margin-top: var(--space-4); text-align:center;">
+      Suas senhas bancárias nunca são solicitadas ou armazenadas. A conexão futura usará o Open Finance oficial.
+    </p>
+  </div>
+
+  <div class="modal-overlay" id="modal-conectar">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <h2 id="modal-titulo" style="font-size:18px; margin-bottom: var(--space-2);">Conectar instituição</h2>
+      <p class="text-secondary text-sm" style="margin-bottom: var(--space-5);">
+        No modo demonstração, a conexão é simulada — nenhuma senha é solicitada.
+      </p>
+      <button class="btn btn-primary" onclick="confirmarConexao()">Simular conexão</button>
+      <button class="btn btn-secondary mt-2" onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10h14V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Início
+    </a>
+    <a href="transacoes.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M7 10l5-5 5 5M7 14l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Transações
+    </a>
+    <a href="categorias.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
+      Categorias
+    </a>
+    <a href="relatorios.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Relatórios
+    </a>
+  </nav>
+
+  <script src="js/app.js"></script>
+  <script src="js/bancos.js"></script>
+</body>
+</html>
